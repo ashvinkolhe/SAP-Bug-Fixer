@@ -1,0 +1,250 @@
+.analytics-dashboard {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px;
+  margin: 0;
+}
+
+.dashboard-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 20px 0;
+}
+
+.dashboard-title svg {
+  color: var(--accent-primary);
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.analytics-card {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.analytics-card.wide {
+  grid-column: 1 / -1;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+}
+
+.card-title svg {
+  color: var(--accent-primary);
+}
+
+/* Severity Bars */
+.severity-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.severity-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.count {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+.bar-container {
+  height: 6px;
+  background-color: var(--bg-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.bar.critical {
+  background: linear-gradient(90deg, #ff6b6b, #ff5252);
+}
+
+.bar.high {
+  background: linear-gradient(90deg, #ffa500, #ff9500);
+}
+
+.bar.medium {
+  background: linear-gradient(90deg, #ffd700, #ffcc00);
+}
+
+.bar.low {
+  background: linear-gradient(90deg, #2ecc71, #27ae60);
+}
+
+.percentage {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-align: right;
+}
+
+/* Frequency Stats */
+.frequency-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.freq-item {
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.freq-item.high {
+  background-color: rgba(255, 107, 107, 0.1);
+  border-left: 3px solid #ff6b6b;
+}
+
+.freq-item.medium {
+  background-color: rgba(255, 165, 0, 0.1);
+  border-left: 3px solid #ffa500;
+}
+
+.freq-item.low {
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left: 3px solid #2ecc71;
+}
+
+.freq-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.freq-count {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Top Lists */
+.top-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 12px;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.list-count {
+  color: var(--accent-primary);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Summary Grid */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.summary-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .analytics-dashboard {
+    padding: 15px;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .analytics-dashboard {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 12px;
+  }
+
+  .summary-value {
+    font-size: 18px;
+  }
+}

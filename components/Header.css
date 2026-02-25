@@ -1,0 +1,123 @@
+.header {
+  background: linear-gradient(120deg, #0f6db8 0%, #0f8897 55%, #126f63 100%);
+  color: #fff;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(4, 25, 43, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  font-weight: 750;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.tagline {
+  font-size: 12px;
+  opacity: 0.92;
+  margin: 2px 0 0;
+  font-weight: 500;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme-toggle {
+  background-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.26);
+  transform: scale(1.04);
+}
+
+.github-link {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.github-link:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .logo h1 {
+    font-size: 22px;
+  }
+
+  .tagline {
+    font-size: 11px;
+  }
+
+  .header-left,
+  .header-right {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 12px;
+  }
+
+  .logo {
+    gap: 10px;
+  }
+
+  .logo h1 {
+    font-size: 18px;
+  }
+
+  .github-link span {
+    display: none;
+  }
+
+  .github-link {
+    padding: 6px 8px;
+  }
+}
