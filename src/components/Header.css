@@ -1,14 +1,28 @@
+/* ──────────────────────────────────────────────────────────
+   HEADER — Frosted Glass Apple-style
+────────────────────────────────────────────────────────── */
+
 .header {
-  background: linear-gradient(120deg, #0f6db8 0%, #0f8897 55%, #126f63 100%);
-  color: #fff;
-  padding: 20px 30px;
+  position: relative;
+  z-index: 200;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(4, 25, 43, 0.35);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 28px;
+  height: 60px;
+  flex-shrink: 0;
+
+  /* Frosted glass */
+  background: var(--bg-secondary);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 1px 0 var(--border-color), var(--shadow-sm);
+  transition: background 0.3s ease;
 }
 
+/* ── Logo ── */
 .header-left {
   display: flex;
   align-items: center;
@@ -17,100 +31,123 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: var(--accent-primary);
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px color-mix(in srgb, var(--accent-primary) 40%, transparent);
 }
 
 .logo h1 {
-  font-size: 28px;
-  font-weight: 750;
-  margin: 0;
-  letter-spacing: -0.4px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  line-height: 1;
 }
 
 .tagline {
-  font-size: 12px;
-  opacity: 0.92;
-  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--text-tertiary);
   font-weight: 500;
+  margin-top: 1px;
+  letter-spacing: 0.1px;
 }
 
+/* ── Right Actions ── */
 .header-right {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .theme-toggle {
-  background-color: rgba(255, 255, 255, 0.16);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
 }
 
 .theme-toggle:hover {
-  background-color: rgba(255, 255, 255, 0.26);
-  transform: scale(1.04);
+  background: var(--accent-primary);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-primary) 30%, transparent);
+  transform: scale(1.05);
 }
 
 .github-link {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
-  padding: 8px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-elevated);
+  color: var(--text-secondary);
+  text-decoration: none;
   font-size: 13px;
   font-weight: 600;
+  transition: all 0.2s ease;
+  letter-spacing: -0.1px;
 }
 
 .github-link:hover {
-  background-color: rgba(255, 255, 255, 0.24);
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: transparent;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .header {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
+    padding: 0 16px;
+    height: 54px;
   }
 
   .logo h1 {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .tagline {
-    font-size: 11px;
-  }
-
-  .header-left,
-  .header-right {
-    width: 100%;
-    justify-content: center;
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    padding: 12px;
+    padding: 0 14px;
+    height: 50px;
   }
 
-  .logo {
-    gap: 10px;
+  .logo-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
   }
 
   .logo h1 {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .github-link span {
@@ -118,6 +155,9 @@
   }
 
   .github-link {
-    padding: 6px 8px;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
   }
 }

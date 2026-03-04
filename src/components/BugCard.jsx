@@ -5,26 +5,31 @@ import './BugCard.css';
 function BugCard({ bug, onSelect, onCopy, copied }) {
   const getSeverityColor = (severity) => {
     switch (severity) {
-      case 'Critical':
-        return '#ff6b6b';
-      case 'High':
-        return '#ffa500';
-      case 'Medium':
-        return '#ffd700';
-      case 'Low':
-        return '#2ecc71';
-      default:
-        return '#808080';
+      case 'Critical': return '#FF3B30';
+      case 'High':     return '#FF9500';
+      case 'Medium':   return '#FFCC00';
+      case 'Low':      return '#34C759';
+      default:         return '#8e8e93';
     }
   };
 
   return (
-    <div className="bug-card" onClick={() => onSelect(bug)}>
+    <div
+      className="bug-card"
+      onClick={() => onSelect(bug)}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => e.key === 'Enter' && onSelect(bug)}
+      aria-label={`Bug: ${bug.title}`}
+    >
       <div className="bug-header">
         <div className="bug-code-badge">{bug.errorCode}</div>
         <span
           className="severity-badge"
-          style={{ borderColor: getSeverityColor(bug.severity) }}
+          style={{
+            borderColor: getSeverityColor(bug.severity),
+            color: getSeverityColor(bug.severity),
+          }}
         >
           {bug.severity}
         </span>
@@ -42,17 +47,18 @@ function BugCard({ bug, onSelect, onCopy, copied }) {
 
       <div className="bug-info">
         <div className="info-item">
-          <Zap size={14} />
+          <Zap size={13} />
           <span>{bug.frequency}</span>
         </div>
         <div className="info-item">
-          <AlertTriangle size={14} />
+          <AlertTriangle size={13} />
           <span>{bug.resolutionTime}</span>
         </div>
       </div>
 
       <div className="bug-footer">
         <button
+          type="button"
           className="btn-view"
           onClick={(e) => {
             e.stopPropagation();
@@ -62,14 +68,16 @@ function BugCard({ bug, onSelect, onCopy, copied }) {
           View Details
         </button>
         <button
+          type="button"
           className="btn-copy"
           onClick={(e) => {
             e.stopPropagation();
             onCopy(bug.errorCode, bug.id);
           }}
           title="Copy error code"
+          aria-label="Copy error code"
         >
-          {copied ? <Check size={16} /> : <Copy size={16} />}
+          {copied ? <Check size={15} /> : <Copy size={15} />}
         </button>
       </div>
     </div>
