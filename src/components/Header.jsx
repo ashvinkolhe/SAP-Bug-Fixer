@@ -7,32 +7,37 @@ function Header({ darkMode, setDarkMode }) {
     <header className="header">
       <div className="header-left">
         <div className="logo">
-          <BookOpen size={32} />
+          <div className="logo-icon">
+            <BookOpen size={20} />
+          </div>
           <div>
             <h1>SAP Bug Fixer</h1>
-            <p className="tagline">Complete SAP Error Reference & Learning Platform</p>
+            <p className="tagline">Enterprise SAP Incident Intelligence</p>
           </div>
         </div>
       </div>
 
       <div className="header-right">
         <button
+          type="button"
           className="theme-toggle"
           onClick={() => setDarkMode(!darkMode)}
-          title="Toggle Dark Mode"
+          title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          aria-label={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
         >
-          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          {darkMode ? <Sun size={18} /> : <Moon size={18} />}
         </button>
 
         <a
-          href="https://github.com"
+          href="https://github.com/ashvinkolhe/SAP-Bug-Fixer"
           target="_blank"
           rel="noopener noreferrer"
           className="github-link"
-          title="View Source Code"
+          title="View Source on GitHub"
+          aria-label="View source code on GitHub"
         >
-          <Github size={20} />
-          <span>Open Source</span>
+          <Github size={17} />
+          <span>GitHub</span>
         </a>
       </div>
     </header>
